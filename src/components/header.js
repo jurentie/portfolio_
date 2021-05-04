@@ -1,11 +1,14 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { css } from "@emotion/react"
+
+import "./header.css"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `#03045E`,
+      background: `#rgb(77, 77, 77)`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -16,17 +19,32 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <div
+        css={css`
+          border-style: solid;
+          border-width: thin;
+          display: inline-block;
+        `}
+      >
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: `black`,
+              textDecoration: `none`,
+            }}
+          >
+            JR
+          </Link>
+        </h1>
+      </div>
+      <div css={css`width:50%; float: right; padding-top:10px;`}>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
     </div>
   </header>
 )
