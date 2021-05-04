@@ -38,7 +38,13 @@ const Header = ({ siteTitle }) => (
           </Link>
         </h1>
       </div>
-      <div css={css`width:50%; float: right; padding-top:10px;`}>
+      <div
+        css={css`
+          width: 50%;
+          float: right;
+          padding-top: 10px;
+        `}
+      >
         <ul>
           <li>Home</li>
           <li>About</li>
