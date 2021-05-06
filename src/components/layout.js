@@ -40,7 +40,10 @@ const Layout = ({ children }) => {
         <footer
           css={css`
             text-align:center;
-            margin-top: 2rem;
+            position: absolute;
+            bottom: 0;
+            width: 95%;
+            height: 60px;
           `}
         >
           Justin Rentie © {new Date().getFullYear()}, Built with
