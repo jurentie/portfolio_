@@ -8,9 +8,11 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { css } from "@emotion/react"
 
 import Header from "./header"
 import "./layout.css"
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,15 +31,17 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          width: `95%`,
+          maxWidth: 1800,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
         <main>{children}</main>
         <footer
-          style={{
-            marginTop: `2rem`,
-          }}
+          css={css`
+            text-align:center;
+            margin-top: 2rem;
+          `}
         >
           Justin Rentie © {new Date().getFullYear()}, Built with
           {` `}
