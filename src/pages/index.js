@@ -1,12 +1,22 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { css } from "@emotion/react"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { getImage } from "gatsby-plugin-image"
+
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
+
 export default function IndexPage({ data }) {
+
+  const image = getImage(data.coolBackground)
+
+  const bgImage = convertToBgImage(image)
+
   return (
     <Layout>
       <Seo title="Home" />
@@ -22,11 +32,14 @@ export default function IndexPage({ data }) {
         </div>
       </div> */}
       <div>
+      <BackgroundImage className="masthead" Tag="section" {...bgImage} preserveStackingContext>
+      <div css={css`width:100%`}>
         <div
           css={css`
             width: 45%;
             margin-right: 100px;
             display: inline-block;
+            margin-top: 100px;
           `}
         >
           <Img fluid={data.imageOne.childImageSharp.fluid} />
@@ -35,7 +48,7 @@ export default function IndexPage({ data }) {
           css={css`
             width: 45%;
             display: inline-block;
-            height:400px;
+            height:19em;
           `}
         >
           <div
@@ -69,6 +82,8 @@ export default function IndexPage({ data }) {
           {/* </div> */}
         </div>
       </div>
+      </BackgroundImage>
+      </div>
     </Layout>
   )
 }
@@ -80,6 +95,15 @@ export const query = graphql`
         fluid(maxWidth: 1000, quality: 80) {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    coolBackground: file(relativePath: { eq: "background.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 2000
+          quality: 50
+          webpOptions: { quality: 70 }
+        )
       }
     }
   }

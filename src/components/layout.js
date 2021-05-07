@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
           width: `95%`,
           maxWidth: 1800,
           padding: `0 1.0875rem 1.45rem`,
+          backgroundImage: `url('cool-background.svg')`
         }}
       >
         <main>{children}</main>
