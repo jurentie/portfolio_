@@ -31,7 +31,6 @@ export default function IndexPage({ data }) {
           <h1>Justin Rentie</h1>
         </div>
       </div> */}
-      <div>
       <BackgroundImage className="masthead" Tag="section" {...bgImage} preserveStackingContext>
       <div css={css`width:100%`}>
         <div
@@ -83,7 +82,6 @@ export default function IndexPage({ data }) {
         </div>
       </div>
       </BackgroundImage>
-      </div>
     </Layout>
   )
 }
